@@ -63,7 +63,7 @@ tasks:
   - action: download_github
     dest: ./resources/[standalone]/progressbar
     ref: main
-    src: https://github.com/qbcore-framework/progressbar
+    src: https://github.com/Pipo1978/progressbar
 
   - action: download_github
     dest: ./resources/[standalone]/interact-sound
@@ -200,7 +200,7 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/qb-garages
     ref: main
-    src: https://github.com/qbcore-framework/qb-garages
+    src: https://github.com/Pipo1978/ss-garage
 
   - action: download_github
     dest: ./resources/[qb]/qb-ambulancejob
@@ -412,7 +412,7 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/qb-menu
     ref: main
-    src: https://github.com/qbcore-framework/qb-menu
+    src: https://github.com/Pipo1978/nmsh-menu
 
   - action: waste_time # prevent github throttling
     seconds: 10
@@ -420,12 +420,46 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/qb-input
     ref: main
-    src: https://github.com/qbcore-framework/qb-input
+    src: https://github.com/Pipo1978/nmsh-input
 
   - action: download_github
     dest: ./resources/[qb]/qb-loading
     ref: main
     src: https://github.com/qbcore-framework/qb-loading
+
+  - action: download_github
+    dest: ./resources/[qb]/qb-community-service
+    ref: main
+    src: https://github.com/Pipo1978/qb-community-service
+
+  # Updates made for my server
+
+  - action: download_github
+    dest: ./resources/[to_install]/
+    ref: main
+    src: https://github.com/rohKane/Kane-qb-hud-Nopixel-4.0-inspired
+
+  - action: download_github
+    dest: ./resources/[to_install]/EF-notify
+    ref: main
+    src: https://github.com/Pipo1978/EF-notify
+
+  - action: download_github
+    dest: ./resources/[to_install]/cdn-fuel
+    ref: main
+    src: https://github.com/Pipo1978/cdn-fuel
+
+  - action: download_github
+    dest: ./resources/[qb]/qb-npwd
+    ref: main
+    src: https://github.com/qbcore-framework/qb-npwd
+
+  - action: download_file
+    path: ./tmp/npwd.zip
+    url: https://github.com/project-error/npwd/releases/download/3.13.0/npwd.zip
+  - action: unzip
+    dest: ./resources/[to_install]/npwd
+    src: ./tmp/npwd.zip
 
   # Clean up
   - action: remove_path
