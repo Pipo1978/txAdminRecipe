@@ -100,6 +100,19 @@ tasks:
     ref: master
     src: https://github.com/qbcore-framework/LegacyFuel
 
+  - action: download_github
+    dest: ./resources/[standalone]/futte-newspaper
+    ref: main
+    src: https://github.com/xFutte/futte-newspaper
+
+  - action: connect_database
+  - action: query_database
+    file: ./resources/[standalone]/futte-newspaper/import.sql ## Prepare PS-MTD to work
+
+  - action: move_path
+    src: ./resources/[standalone]/futte-newspaper/newspaper.png
+    dest: ./resources/[ox]/ox_inventory/web/images/newspaper.png
+
   - action: waste_time # prevent github throttling
     seconds: 10
 
@@ -178,9 +191,9 @@ tasks:
     src: https://github.com/qbcore-framework/qb-prison
 
   - action: download_github
-    dest: ./resources/[qb]/qb-hud
+    dest: ./resources/[qb]
     ref: main
-    src: https://github.com/Pipo1978/z-hud
+    src: https://github.com/Pipo1978/Kane-qb-hud-Nopixel-4.0-inspired
 
   - action: download_github
     dest: ./resources/[qb]/qb-management
@@ -205,7 +218,7 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/qb-houses
     ref: main
-    src: https://github.com/qbcore-framework/qb-houses
+    src: https://github.com/Pipo1978/qb-houses
 
   - action: download_github
     dest: ./resources/[qb]/qb-garages
@@ -248,7 +261,7 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/qb-apartments
     ref: main
-    src: https://github.com/qbcore-framework/qb-apartments
+    src: https://github.com/Pipo1978/qb-apartments
 
   - action: download_github
     dest: ./resources/[qb]/qb-vehiclekeys
@@ -440,24 +453,24 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/cw-head2head
     ref: main
-    src: https://github.com/Coffeelot/cw-head2head.git
+    src: https://github.com/Coffeelot/cw-head2head
 
     # ProjectSloth Addons
 
   - action: download_github
     dest: ./resources/[qb]/ps-mdt
     ref: main
-    src: https://github.com/Project-Sloth/ps-mdt.git
+    src: https://github.com/Project-Sloth/ps-mdt
 
   - action: download_github
     dest: ./resources/[qb]/ps-dispatch
     ref: main
-    src: https://github.com/Project-Sloth/ps-dispatch.git
+    src: https://github.com/Project-Sloth/ps-dispatch
 
   - action: download_github
     dest: ./resources/[qb]/ps-adminmenu
     ref: main
-    src: https://github.com/Project-Sloth/ps-adminmenu.git
+    src: https://github.com/Project-Sloth/ps-adminmenu
 
     # OX-Files
   - action: download_file ## Remember to check the latest version of OX_INVENTORY - This is v2.38.1 (Jan, 2 2024)
@@ -489,11 +502,35 @@ tasks:
     dest: ./resources/[qb]
     src: ./tmp/files/illenium-appearance.zip
 
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/qbcore/illenium_appearance_DROP.sql ## Drop playerskins and player_outfits tables from qb-core
+
+  - action: connect_database
+  - action: query_database
+    file: ./resources/[qb]/illenium-appearance/sql/playerskins.sql ## Inject for racing tablet works
+
+  - action: connect_database
+  - action: query_database
+    file: ./resources/[qb]/illenium-appearance/sql/player_outfits.sql ## Inject for racing tablet works
+
+  - action: connect_database
+  - action: query_database
+    file: ./resources/[qb]/illenium-appearance/sql/player_outfit_codes.sql ## Inject for racing tablet works
+
+  - action: connect_database
+  - action: query_database
+    file: ./resources/[qb]/illenium-appearance/sql/management_outfits.sql ## Inject for racing tablet works
+
   ## Racing Script
   - action: download_github
     dest: ./resources/[extras]/cw-racingapp
     ref: main
     src: https://github.com/Coffeelot/cw-racingapp
+
+  - action: move_path
+    src: ./resources/[extras]/cw-racingapp/items/racing_gps.png
+    dest: ./resources/[ox]/ox_inventory/web/images/racing_gps.png
 
   - action: download_github
     dest: ./resources/[extras]/cw-performance
