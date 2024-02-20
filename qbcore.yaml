@@ -17,6 +17,10 @@ tasks:
     dest: ./server.cfg
 
   - action: move_path
+    src: ./tmp/qbcore/convars.cfg
+    dest: ./convars.cfg
+
+  - action: move_path
     src: ./tmp/qbcore/myLogo.png
     dest: ./myLogo.png
 
@@ -24,6 +28,10 @@ tasks:
   - action: connect_database
   - action: query_database
     file: ./tmp/qbcore/qbcore.sql
+
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/qbcore/mdt.sql ## Prepare PS-MTD to work
 
   # STANDALONE
   - action: download_github
@@ -37,6 +45,13 @@ tasks:
   - action: unzip
     dest: ./resources/[standalone]
     src: ./tmp/files/oxmysql.zip
+
+  - action: download_file
+    path: ./tmp/files/ox_lib.zip
+    url: https://github.com/overextended/ox_lib/releases/download/v3.16.3/ox_lib.zip
+  - action: unzip
+    dest: ./resources/[standalone]
+    src: ./tmp/files/ox_lib.zip
 
   - action: download_file
     path: ./tmp/menuv.zip
@@ -63,7 +78,7 @@ tasks:
   - action: download_github
     dest: ./resources/[standalone]/progressbar
     ref: main
-    src: https://github.com/Pipo1978/progressbar
+    src: https://github.com/Pipo1978/progressbar #Using NoPixel 4.0 Style progressbar
 
   - action: download_github
     dest: ./resources/[standalone]/interact-sound
@@ -122,27 +137,22 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/qb-core
     ref: main
-    src: https://github.com/qbcore-framework/qb-core
+    src: https://github.com/Pipo1978/qb-core
 
-  - action: download_github
-    dest: ./resources/[qb]/qb-scoreboard
-    ref: main
-    src: https://github.com/qbcore-framework/qb-scoreboard
-
-  - action: download_github
-    dest: ./resources/[qb]/qb-adminmenu
-    ref: main
-    src: https://github.com/qbcore-framework/qb-adminmenu
+  # - action: download_github
+  #   dest: ./resources/[qb]/qb-adminmenu
+  #   ref: main
+  #   src: https://github.com/qbcore-framework/qb-adminmenu
 
   - action: download_github
     dest: ./resources/[qb]/qb-multicharacter
     ref: main
-    src: https://github.com/qbcore-framework/qb-multicharacter
+    src: https://github.com/Pipo1978/qb-multicharacter #a QB-Multicharacter with a cool design made by marcostom32
 
-  - action: download_github
-    dest: ./resources/[qb]/qb-target
-    ref: main
-    src: https://github.com/qbcore-framework/qb-target
+  # - action: download_github
+  #   dest: ./resources/[qb]/qb-target
+  #   ref: main
+  #   src: https://github.com/qbcore-framework/qb-target
 
   - action: download_github
     dest: ./resources/[qb]/qb-vehiclesales
@@ -170,7 +180,7 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/qb-hud
     ref: main
-    src: https://github.com/qbcore-framework/qb-hud
+    src: https://github.com/Pipo1978/z-hud
 
   - action: download_github
     dest: ./resources/[qb]/qb-management
@@ -187,10 +197,10 @@ tasks:
     ref: main
     src: https://github.com/qbcore-framework/qb-lapraces
 
-  - action: download_github
-    dest: ./resources/[qb]/qb-inventory
-    ref: main
-    src: https://github.com/qbcore-framework/qb-inventory
+  # - action: download_github
+  #   dest: ./resources/[qb]/qb-inventory
+  #   ref: main
+  #   src: https://github.com/qbcore-framework/qb-inventory
 
   - action: download_github
     dest: ./resources/[qb]/qb-houses
@@ -200,7 +210,7 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/qb-garages
     ref: main
-    src: https://github.com/Pipo1978/ss-garage
+    src: https://github.com/Pipo1978/ss-garage #Use this garage... It's better and looks nice
 
   - action: download_github
     dest: ./resources/[qb]/qb-ambulancejob
@@ -253,7 +263,7 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/qb-phone
     ref: main
-    src: https://github.com/qbcore-framework/qb-phone
+    src: https://github.com/Pipo1978/qb-phone
 
   - action: download_github
     dest: ./resources/[qb]/qb-vineyard
@@ -263,10 +273,10 @@ tasks:
   - action: waste_time # prevent github throttling
     seconds: 10
 
-  - action: download_github
-    dest: ./resources/[qb]/qb-weapons
-    ref: main
-    src: https://github.com/qbcore-framework/qb-weapons
+  # - action: download_github
+  #   dest: ./resources/[qb]/qb-weapons
+  #   ref: main
+  #   src: https://github.com/qbcore-framework/qb-weapons
 
   - action: download_github
     dest: ./resources/[qb]/qb-scrapyard
@@ -291,7 +301,7 @@ tasks:
   - action: download_github
     dest: ./resources/[qb]/qb-spawn
     ref: main
-    src: https://github.com/qbcore-framework/qb-spawn
+    src: https://github.com/Pipo1978/qb-spawn #a QB-Spawn with a cool design made by marcostom32
 
   - action: download_github
     dest: ./resources/[qb]/qb-smallresources
@@ -374,20 +384,20 @@ tasks:
     ref: main
     src: https://github.com/qbcore-framework/qb-banking
 
-  - action: download_github
-    dest: ./resources/[qb]/qb-clothing
-    ref: main
-    src: https://github.com/qbcore-framework/qb-clothing
+  # - action: download_github
+  #   dest: ./resources/[qb]/qb-clothing
+  #   ref: main
+  #   src: https://github.com/qbcore-framework/qb-clothing
 
   - action: download_github
     dest: ./resources/[qb]/qb-hotdogjob
     ref: main
     src: https://github.com/qbcore-framework/qb-hotdogjob
 
-  - action: download_github
-    dest: ./resources/[qb]/qb-doorlock
-    ref: main
-    src: https://github.com/qbcore-framework/qb-doorlock
+  # - action: download_github
+  #   dest: ./resources/[qb]/qb-doorlock
+  #   ref: main
+  #   src: https://github.com/qbcore-framework/qb-doorlock
 
   - action: download_github
     dest: ./resources/[qb]/qb-garbagejob
@@ -399,10 +409,10 @@ tasks:
     ref: main
     src: https://github.com/qbcore-framework/qb-drugs
 
-  - action: download_github
-    dest: ./resources/[qb]/qb-shops
-    ref: main
-    src: https://github.com/qbcore-framework/qb-shops
+  # - action: download_github
+  #   dest: ./resources/[qb]/qb-shops
+  #   ref: main
+  #   src: https://github.com/qbcore-framework/qb-shops
 
   - action: download_github
     dest: ./resources/[qb]/qb-interior
@@ -428,38 +438,75 @@ tasks:
     src: https://github.com/qbcore-framework/qb-loading
 
   - action: download_github
-    dest: ./resources/[qb]/qb-community-service
+    dest: ./resources/[qb]/cw-head2head
     ref: main
-    src: https://github.com/Pipo1978/qb-community-service
+    src: https://github.com/Coffeelot/cw-head2head.git
 
-  # Updates made for my server
+    # ProjectSloth Addons
 
   - action: download_github
-    dest: ./resources/[to_install]/
+    dest: ./resources/[qb]/ps-mdt
     ref: main
-    src: https://github.com/rohKane/Kane-qb-hud-Nopixel-4.0-inspired
+    src: https://github.com/Project-Sloth/ps-mdt.git
 
   - action: download_github
-    dest: ./resources/[to_install]/EF-notify
+    dest: ./resources/[qb]/ps-dispatch
     ref: main
-    src: https://github.com/Pipo1978/EF-notify
+    src: https://github.com/Project-Sloth/ps-dispatch.git
 
   - action: download_github
-    dest: ./resources/[to_install]/cdn-fuel
+    dest: ./resources/[qb]/ps-adminmenu
     ref: main
-    src: https://github.com/Pipo1978/cdn-fuel
+    src: https://github.com/Project-Sloth/ps-adminmenu.git
 
-  - action: download_github
-    dest: ./resources/[qb]/qb-npwd
-    ref: main
-    src: https://github.com/qbcore-framework/qb-npwd
-
-  - action: download_file
-    path: ./tmp/npwd.zip
-    url: https://github.com/project-error/npwd/releases/download/3.13.0/npwd.zip
+    # OX-Files
+  - action: download_file ## Remember to check the latest version of OX_INVENTORY - This is v2.38.1 (Jan, 2 2024)
+    path: ./tmp/files/ox_inventory.zip
+    url: https://github.com/overextended/ox_inventory/releases/download/v2.38.1/ox_inventory.zip
   - action: unzip
-    dest: ./resources/[to_install]/npwd
-    src: ./tmp/npwd.zip
+    dest: ./resources/[ox]
+    src: ./tmp/files/ox_inventory.zip
+
+  - action: download_file ## Remember to check the latest version of OX_TARGET - This is v1.14.0 (Jan, 28 2024)
+    path: ./tmp/files/ox_target.zip
+    url: https://github.com/overextended/ox_target/releases/download/v1.14.0/ox_target.zip
+  - action: unzip
+    dest: ./resources/[ox]
+    src: ./tmp/files/ox_target.zip
+
+  - action: download_file ## Remember to check the latest version of OX_DOORLOCK - This is v1.15.0 (Jan, 28 2024)
+    path: ./tmp/files/ox_doorlock.zip
+    url: https://github.com/overextended/ox_doorlock/releases/download/v1.15.0/ox_doorlock.zip
+  - action: unzip
+    dest: ./resources/[ox]
+    src: ./tmp/files/ox_doorlock.zip
+
+    #Appearance
+  - action: download_file ## Remember to check the latest version of Illenium-Appearance - This is v5.6.1
+    path: ./tmp/files/illenium-appearance.zip
+    url: https://github.com/iLLeniumStudios/illenium-appearance/releases/download/v5.6.1/illenium-appearance.zip
+  - action: unzip
+    dest: ./resources/[qb]
+    src: ./tmp/files/illenium-appearance.zip
+
+  ## Racing Script
+  - action: download_github
+    dest: ./resources/[extras]/cw-racingapp
+    ref: main
+    src: https://github.com/Coffeelot/cw-racingapp
+
+  - action: download_github
+    dest: ./resources/[extras]/cw-performance
+    ref: main
+    src: https://github.com/Coffeelot/cw-performance
+
+  - action: connect_database
+  - action: query_database
+    file: ./resources/[extras]/cw-racingapp/cw-racingapp.sql ## Inject for racing tablet works
+
+  - action: connect_database
+  - action: query_database
+    file: ./resources/[extras]/cw-racingapp/cw-racingcrews.sql ## Inject for racing tablet works
 
   # Clean up
   - action: remove_path
